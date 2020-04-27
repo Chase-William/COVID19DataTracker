@@ -1,0 +1,1 @@
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker.UWP\COVID19DataTracker.UWP.csproj;x86

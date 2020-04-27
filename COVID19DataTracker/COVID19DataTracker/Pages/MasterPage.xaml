@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"                      
+             xmlns:local_pages="clr-namespace:COVID19DataTracker.Pages"
+             xmlns:local_master_items="clr-namespace:COVID19DataTracker.Pages.NavItems"
+             mc:Ignorable="d"
+             x:Class="COVID19DataTracker.Pages.MasterPage"
+             Title="MasterPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="NavLabelStyle" TargetType="Label">
+                <Setter Property="Margin" Value="15,0,0,0"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
+                <Setter Property="Text" Value="{Binding Title}"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+
+            <!--<Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource PlainBGColor}"/>
+                <Setter Property="CornerRadius" Value="25"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="Margin" Value="10,3"/>
+            </Style>-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <!-- This is the content for the drawer nav -->
+    <StackLayout>
+        <!-- Main Navigation from this app, IMPORTANT WE MAKE THE LISTVIEW PUBLIC SO WE CAN ACCESS IT IN THE MAINPAGE -->
+        <ListView x:Name="MasterPageNavListView" 
+                  x:FieldModifier="public" 
+                  Margin="0,100,0,0"
+                  HasUnevenRows="True">
+            <!-- Our item source is static and therefore we can define the array here of our MasterPageImageItem type -->
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local_master_items:MasterPageItem}">
+                    <local_master_items:MasterPageItem Title="News Feed" TargetType="{x:Type local_pages:NewsFeedPage}"/>
+                    <local_master_items:MasterPageItem Title="Query Statistics"  TargetType="{x:Type local_pages:QueryStatisticsPage}"/>
+                    <local_master_items:MasterPageItem Title="Prevent Infection"  TargetType="{x:Type local_pages:PreventInfectionPage}"/>
+                </x:Array>
+            </ListView.ItemsSource>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Cell for the menu items -->
+                    <ViewCell>
+                        <Label Style="{StaticResource NavLabelStyle}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

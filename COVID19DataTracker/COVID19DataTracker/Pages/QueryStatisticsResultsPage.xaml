@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:COVID19DataTracker.Converters"
+             mc:Ignorable="d"
+             x:Class="COVID19DataTracker.Pages.QueryStatisticsResultsPage"
+             Title="Query Results">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <converter:RegionLocationConverter x:Key="RegionLocationConverter"/>
+
+            <Style x:Key="RegionHeaderLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="Text" Value="{Binding Region, Converter={StaticResource RegionLocationConverter}}"/>
+            </Style>
+
+            <Style x:Key="RegionLabelStyle" TargetType="Label">
+                <Setter Property="Grid.Column" Value="0"/>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+
+            <Style x:Key="RegionValueStyle" TargetType="Label">
+                <Setter Property="Grid.Column" Value="1"/>
+                <Setter Property="TextColor" Value="{StaticResource LightBlueColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+
+            <Style x:Key="CityHeaderLabelStyle" TargetType="Label" BasedOn="{StaticResource RegionHeaderLabelStyle}">
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            
+            <Style x:Key="CityLabelStyle" TargetType="Label" BasedOn="{StaticResource RegionLabelStyle}">
+                <Setter Property="FontSize" Value="Small"/>
+            </Style>
+
+            <Style x:Key="CityValueStyle" TargetType="Label" BasedOn="{StaticResource RegionValueStyle}">
+                <Setter Property="FontSize" Value="Small"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <ListView x:Name="ResultsCollectionView"
+                  HasUnevenRows="True"
+                  SelectionMode="None"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="10" Margin="10,15" Padding="7">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="130"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- The header of our datatemplate -->
+                                <Label Style="{StaticResource RegionHeaderLabelStyle}"/>
+
+                                <Label Style="{StaticResource RegionLabelStyle}" Text="Date:" Grid.Row="1"/>
+                                <Label Style="{StaticResource RegionValueStyle}" Text="{Binding Date}" Grid.Row="1"/>
+
+                                <Label Style="{StaticResource RegionLabelStyle}" Text="Confirmed:" Grid.Row="2"/>
+                                <Label Style="{StaticResource RegionValueStyle}" Text="{Binding Confirmed}" Grid.Row="2"/>
+
+                                <Label Style="{StaticResource RegionLabelStyle}" Text="Recovered:" Grid.Row="3"/>
+                                <Label Style="{StaticResource RegionValueStyle}" Text="{Binding Recovered}" Grid.Row="3"/>
+
+                                <Label Style="{StaticResource RegionLabelStyle}" Text="Deaths:" Grid.Row="4"/>
+                                <Label Style="{StaticResource RegionValueStyle}" Text="{Binding Deaths}" Grid.Row="4"/>
+
+                                <Label Text="Cities:" TextColor="{StaticResource LightPinkColor}" Grid.Row="5"/>
+
+                                <CollectionView ItemsSource="{Binding Region.Cities}" ItemsLayout="HorizontalList" Grid.Row="6" Grid.ColumnSpan="2">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout>
+                                                <Frame CornerRadius="10" Padding="7" Margin="5">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="30"/>
+                                                            <RowDefinition Height="20"/>
+                                                            <RowDefinition Height="20"/>
+                                                            <RowDefinition Height="20"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <Label Style="{StaticResource CityHeaderLabelStyle}" Text="{Binding Name}"/>
+
+                                                        <Label Style="{StaticResource CityLabelStyle}" Text="Date:" Grid.Row="1"/>
+                                                        <Label Style="{StaticResource CityValueStyle}" Text="{Binding Date}" Grid.Row="1"/>
+
+                                                        <Label Style="{StaticResource CityLabelStyle}" Text="Confirmed:" Grid.Row="2"/>
+                                                        <Label Style="{StaticResource CityValueStyle}" Text="{Binding Confirmed}" Grid.Row="2"/>
+
+                                                        <Label Style="{StaticResource CityLabelStyle}" Text="Deaths:" Grid.Row="3"/>
+                                                        <Label Style="{StaticResource CityValueStyle}" Text="{Binding Deaths}" Grid.Row="3"/>
+                                                    </Grid>
+                                                </Frame>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>

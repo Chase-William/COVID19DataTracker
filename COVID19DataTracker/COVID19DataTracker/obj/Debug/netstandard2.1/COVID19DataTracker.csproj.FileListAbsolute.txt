@@ -1,0 +1,16 @@
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\bin\Debug\netstandard2.1\COVID19DataTracker.deps.json
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\bin\Debug\netstandard2.1\COVID19DataTracker.dll
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\bin\Debug\netstandard2.1\ref\COVID19DataTracker.dll
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\bin\Debug\netstandard2.1\COVID19DataTracker.pdb
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\COVID19DataTracker.csprojAssemblyReference.cache
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\App.xaml.g.cs
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\Pages\HowToProtectPage.xaml.g.cs
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\Pages\MainPage.xaml.g.cs
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\Pages\QueryPage.xaml.g.cs
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\Pages\RSSFeedPage.xaml.g.cs
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\COVID19DataTracker.AssemblyInfoInputs.cache
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\COVID19DataTracker.AssemblyInfo.cs
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\XamlC.stamp
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\COVID19DataTracker.dll
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\ref\COVID19DataTracker.dll
+C:\Dev\COVID19DataTracker\COVID19DataTracker\COVID19DataTracker\obj\Debug\netstandard2.1\COVID19DataTracker.pdb

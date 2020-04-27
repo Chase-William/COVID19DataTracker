@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:COVID19DataTracker.ViewModels"
+             mc:Ignorable="d"
+             x:Class="COVID19DataTracker.Pages.NewsFeedPage"
+             Title="News Feeds">
+
+    <ContentPage.BindingContext>
+        <local:NewsFeedPageBM/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Title style -->
+            <Style x:Key="TitleLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Text" Value="{Binding Title}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+
+            <!-- Description style -->
+            <Style x:Key="DescriptionStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="Text" Value="{Binding Description}"/>
+                <Setter Property="Grid.Row" Value="1"/>
+                <Setter Property="Grid.ColumnSpan" Value="2"/>
+            </Style>
+            
+            <!-- Go to source imagebtn style -->
+            <Style TargetType="ImageButton">
+                <Setter Property="Command" Value="{Binding Source={x:Reference RSSListView}, Path=BindingContext.GetSourceCMD}"/>
+                <Setter Property="CommandParameter" Value="{Binding Link}"/>
+                <Setter Property="Source" Value="goto_source_icon.png"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="Grid.Column" Value="1"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>    
+    
+    <ListView x:Name="RSSListView"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding RSSRefreshCMD}"        
+              HasUnevenRows="True"
+              ItemsSource="{Binding RSSFeed}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                                
+                        <Label Style="{StaticResource TitleLabelStyle}"/>
+                        <!-- We use the ListView's BindingContext to get a ref to the Commands, CommandParameter is the link inside this ViewCell's BindingContext -->
+                        <ImageButton/>
+                        <Label Style="{StaticResource DescriptionStyle}"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>

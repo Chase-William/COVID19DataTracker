@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:COVID19DataTracker.ViewModels"
+             mc:Ignorable="d"
+             x:Class="COVID19DataTracker.Pages.QueryStatisticsPage"
+             Title="Query Statistics">
+
+    <ContentPage.BindingContext>
+        <local:QueryStatisticsPageVM/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Entry Placeholder="State or Province" Text="{Binding ProvinceOrState.ParameterValue}"/>
+        <Entry Placeholder="Country ISO Code" Text="{Binding CountryISOCode.ParameterValue}"/>
+        <Entry Placeholder="Region Name" Text="{Binding RegionName.ParameterValue}"/>
+        <Entry Placeholder="City Name" Text="{Binding CityName.ParameterValue}"/>
+        <Button Text="Get Data" Clicked="OnGetQueryResults_BtnClicked"/>
+    </StackLayout>
+
+</ContentPage>
